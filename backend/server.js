@@ -5,8 +5,12 @@ const cors = require('cors');
 
 const app = express();
 const port = 3000;
+// app.use(cors());
 
-app.use(cors());
+const corsOptions = {
+  origin: 'https://generate-excel-five.vercel.app' // <-- IMPORTANT: Use your Vercel URL here
+};
+app.use(cors(corsOptions));
 app.use(express.json());
 
 // --- Helper function to generate a valid SSN (No changes here) ---

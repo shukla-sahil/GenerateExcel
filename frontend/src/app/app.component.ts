@@ -14,7 +14,8 @@ export class AppComponent {
   isLoading: boolean = false;
   errorMessage: string | null = null;
 
-  private apiUrl = 'http://localhost:3000/generate-excel';
+  // private apiUrl = 'http://localhost:3000/generate-excel';
+  private apiUrl = 'https://generateexcel.onrender.com/generate-excel';
 
   constructor(private http: HttpClient) {}
 
