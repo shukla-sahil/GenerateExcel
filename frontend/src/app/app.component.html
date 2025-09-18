@@ -1,0 +1,44 @@
+<div class="container">
+  <header>
+    <h1>Employee Data Generator 📊</h1>
+    <p>Specify the number of employees and files, then download each Excel file separately.</p>
+  </header>
+
+  <main class="card">
+    <div class="form-group">
+      <label for="numEmployees">Number of Employees per File:</label>
+      <input 
+        id="numEmployees" 
+        type="number" 
+        [(ngModel)]="numEmployees" 
+        min="1"
+        placeholder="e.g., 50"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="numFiles">Number of Excel Files to Generate (Max 5):</label>
+      <input 
+        id="numFiles" 
+        type="number" 
+        [(ngModel)]="numFiles" 
+        min="1"
+        max="5"
+        placeholder="e.g., 4"
+      />
+    </div>
+
+    <button (click)="generateAndDownload()" [disabled]="isLoading">
+      <span *ngIf="!isLoading">🚀 Generate & Download Files</span>
+      <span *ngIf="isLoading">Generating... Please wait...</span>
+    </button>
+    
+    <div *ngIf="errorMessage" class="error-message">
+      {{ errorMessage }}
+    </div>
+  </main>
+  
+  <footer>
+    <p>sshukla.nft</p>
+  </footer>
+</div>
